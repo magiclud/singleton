@@ -1,0 +1,4 @@
+singleton
+=========
+
+designPatterns
