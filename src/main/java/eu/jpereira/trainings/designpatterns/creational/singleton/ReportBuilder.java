@@ -92,7 +92,15 @@ public class ReportBuilder {
 	 */
 	public static ReportBuilder getInstance() {// moja zmiana
 
-		return new ReportBuilder();
+		System.out.println("Getting instance for Thread " + Thread.currentThread().getId());
+		if (INSTANCE == null) {
+			synchronized (ReportBuilder.class) {
+				if (INSTANCE == null) {
+					INSTANCE = new ReportBuilder();
+				}
+			}
+		}
+		return INSTANCE;
 	}
 
 	/**
